@@ -19,10 +19,10 @@ class FIFOCache(BaseCaching):
         """
             Assigns the item value to the dict for the given key
         """
-        if key is None and item is None:
+        if key is None or item is None:
             return
 
-        if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             k = self.order.pop(0)
             del self.cache_data[k]
             print("DISCARD: {}".format(k))
