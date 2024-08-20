@@ -20,7 +20,7 @@ class LRUCache(BaseCaching):
         """
             Assigns the item value to the dict for the given key
         """
-        if key is None and item is None:
+        if key is None or item is None:
             return
 
         if key in self.cache_data:
